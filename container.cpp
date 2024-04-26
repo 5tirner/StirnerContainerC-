@@ -30,6 +30,22 @@ class stirner
             }
         }
 
+        void    addFront(cntz **self, _data val)
+        {
+            cntz *copy = new cntz();
+            if (!copy)
+                throw "Bad Memory";
+            copy->val = val;
+            copy->next = NULL;
+            if (!(*self))
+                *self = copy;
+            else
+            {
+                copy->next = *self;
+                *self = copy;
+            }
+        }
+
         void    deleteOne(cntz **self, int indexToRemove)
         {
             cntz *backUp = NULL;
@@ -92,7 +108,20 @@ class stirner
             }
             catch(...)
             {
-                std::cerr << "Memory Allocation Failed." << std::endl;    
+                std::cerr << "Memory Allocation Failed." << std::endl;
+            }
+        }
+
+        void    addAtBegin(_data val)
+        {
+            try
+            {
+                this->addFront(&this->linkedList, val);
+                this->size++;
+            }
+            catch(...)
+            {
+                std::cerr << "Memory Allocation Failed." << std::endl;
             }
         }
 
@@ -132,10 +161,16 @@ int main()
     obj.addAtEnd(9);
     try
     {
-        std::cout << obj.getSize() << std::endl;
-        std::cout << obj.getContentOfPosiotion(5) << std::endl;
+        std::cout << "Size: " << obj.getSize() << std::endl;
+        std::cout << "Content Of Pos 5 Is: " << obj.getContentOfPosiotion(5) << std::endl;
+        std::cout << "Describe The Container: " << std::endl;
         obj.showMyStirner();
+        std::cout << "Remove Index Number 4: " << std::endl;
         obj.removePosition(4);
+        std::cout << "Describe The Container Again: " << std::endl;
+        obj.showMyStirner();
+        obj.addAtBegin(0);
+        std::cout << "Size: " << obj.getSize() << std::endl;
         obj.showMyStirner();
     }
     catch (const char *err)
