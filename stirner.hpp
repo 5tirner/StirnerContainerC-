@@ -1,7 +1,6 @@
 #ifndef STIRNER_HPP
 # define STIRNER_HPP
 
-#include <cstdlib>
 #include <iostream>
 
 template <typename _data>
