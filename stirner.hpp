@@ -119,6 +119,24 @@ class stirner
             }
             return (-1);
         }
+
+        void    addAt(cntz **self, int pos, _data newVal)
+        {
+            int i = 0;
+            cntz *copy = NULL;
+            while (*self)
+            {
+                cntz *save = *self;
+                if (i == pos)
+                    addBack(&copy, newVal);
+                addBack(&copy, (*self)->val);
+                (*self) = (*self)->next;
+                i++;
+                delete save;
+            }
+            *self = copy;
+        }
+
         cntz    *linkedList;
         int     size;
 
@@ -209,7 +227,17 @@ class stirner
                 throw "Failed Search For Element.";
             return (save);  
         }
-};
 
+        void    insertInPosition(int pos, _data val)
+        {
+            if (pos < 0 || pos > this->size || !this->linkedList)
+                throw "Failed To Add Element In Specified Position";
+            if (pos == this->size)
+                this->addBack(&this->linkedList, val);
+            else
+                this->addAt(&this->linkedList, pos, val);
+            this->size++;
+        }
+};
 
 #endif

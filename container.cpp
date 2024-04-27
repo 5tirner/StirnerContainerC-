@@ -39,6 +39,8 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         test1.showMyStirner();
         std::cout << "Value Of Index 1 Is: " << test1[1] << std::endl;
+        std::cout << "Add Value 1000 At Position 3." << std::endl;
+        test1.insertInPosition(3, 1000);
         test1[1] = 10;
         std::cout << "Describe The Container Again: " << std::endl;
         test1.showMyStirner();
@@ -68,8 +70,11 @@ int main()
         test2[0] = "Good Man";
         std::cout << "Describe The Container Again: " << std::endl;
         test2.showMyStirner();
+        std::cout << "Add `Hi` At Position 0." << std::endl;
+        test2.insertInPosition(0, "Hi");
+        std::cout << "Describe The Container Again: " << std::endl;
+        test2.showMyStirner();
         std::cout << "Index Of The Value `Hi` Is: " << test2.search("Hi") << std::endl;
-
     }
     catch (const char *err)
     {
