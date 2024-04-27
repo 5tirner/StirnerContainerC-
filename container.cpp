@@ -61,7 +61,7 @@ class stirner
             *self = backUp;
         }
 
-        _data   getData(cntz *self, int pos)
+        _data   &getData(cntz *self, int pos)
         {
             int i = 0;
             while (self)
@@ -177,6 +177,13 @@ class stirner
             deleteRange(&this->linkedList, From, Until);
             this->size -= Until - From;
         }
+
+        _data&operator[](int index)
+        {
+            if (index < 0 || index >= this->size || !this->linkedList)
+                throw "Failed To Access To An Index.";
+            return (getData(this->linkedList, index));
+        }
         int getSize() {return (this->size);}
 };
 
@@ -209,10 +216,11 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
         std::cout << "Remove Elements From 0 To 3: " << std::endl;
-        obj.removeRange(1, 9);
+        obj.removeRange(0, 3);
         std::cout << "Size After Delete The Range = " << obj.getSize() << std::endl;
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
+        std::cout << "Value Of Index 1 Is: " << obj[1] << std::endl;
     }
     catch (const char *err)
     {
