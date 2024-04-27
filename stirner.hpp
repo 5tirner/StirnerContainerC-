@@ -238,6 +238,17 @@ class stirner
                 this->addAt(&this->linkedList, pos, val);
             this->size++;
         }
+
+        void    cleanStirner()
+        {
+            while (this->linkedList)
+            {
+                cntz *save = this->linkedList;
+                this->linkedList = this->linkedList->next;
+                delete save;
+            }
+            this->linkedList = NULL;
+        }
 };
 
 #endif

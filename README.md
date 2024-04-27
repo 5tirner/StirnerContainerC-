@@ -1,3 +1,4 @@
+### --- Tested Using `c++ -Wall -Wextra -Werror container.cpp -fsanitize=address -g3` ---
 ### Stiner Container Depends On An UnderLying Container (LinkedList)
 ### Add Element In The Back Using The Memeber Function:
 `addAtEnd(DataType val)` -> void, Throw Const Char* In Error Case.
@@ -19,6 +20,8 @@
 `search(dataType val)` -> int, Return Position, Throw Const Char * In Error Case.
 ### Insert A Value In A Poition Using The Memmber Function:
 `insertInPosition(int pos, dataType val)` -> void, Throw Const Char * In Error Case.
+### Clear The Container Using The Member Function:
+`cleanStirner()` -> void.
 
 -------------------------------------------------------------------------------------------
 ### ==954804== Memcheck, a memory error detector:

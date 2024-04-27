@@ -45,6 +45,9 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         test1.showMyStirner();
         std::cout << "Index Of Number 9 Is: " << test1.search(9) << std::endl;
+        test1.cleanStirner();
+        std::cout << "Describe The Container Again: " << std::endl;
+        test1.showMyStirner();
         std::cout << "---------------------------------------------" << std::endl;
         std::cout << "Test With Strings: " << std::endl;
         std::cout << "Size At Start = " << test2.getSize() << std::endl;
@@ -75,6 +78,12 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         test2.showMyStirner();
         std::cout << "Index Of The Value `Hi` Is: " << test2.search("Hi") << std::endl;
+        test2.cleanStirner();
+        std::cout << "Describe The Container Again: " << std::endl;
+        test2.showMyStirner();
+        test2.addAtBegin("Yoooo");
+        std::cout << "Describe The Container Again: " << std::endl;
+        test2.showMyStirner();
     }
     catch (const char *err)
     {
