@@ -88,6 +88,23 @@ class stirner
             }
             std::cout << " ]" << std::endl;
         }
+
+        void    deleteRange(cntz **self, int from, int until)
+        {
+            cntz *copy = NULL;
+            int i = 0;
+            while ((*self))
+            {
+                cntz *save = *self;
+                if (i < from || i >= until)
+                    addBack(&copy, (*self)->val);
+                i++;
+                (*self) = (*self)->next;
+                delete save;
+            }
+            *self = copy; 
+        }
+
         cntz    *linkedList;
         int     size;
 
@@ -138,6 +155,7 @@ class stirner
             if (!this->linkedList || Index < 0 || Index >= this->size)
                 throw "Failed To Remove It.";
             this->deleteOne(&this->linkedList, Index);
+            this->size--;
         }
 
         _data   getContentOfPosiotion(int Pos)
@@ -152,6 +170,13 @@ class stirner
             this->printAll(this->linkedList);
         }
 
+        void    removeRange(int From, int Until)
+        {
+            if (From > Until || From < 0 || Until > this->size || !this->linkedList)
+                throw "Failed To Remove A Range.";
+            deleteRange(&this->linkedList, From, Until);
+            this->size -= Until - From;
+        }
         int getSize() {return (this->size);}
 };
 
@@ -169,16 +194,24 @@ int main()
     obj.addAtEnd(9);
     try
     {
-        std::cout << "Size: " << obj.getSize() << std::endl;
+        std::cout << "Size At Start = " << obj.getSize() << std::endl;
         std::cout << "Content Of Pos 5 Is: " << obj.getContentOfPosiotion(5) << std::endl;
         std::cout << "Describe The Container: " << std::endl;
         obj.showMyStirner();
-        std::cout << "Remove Index Number 4: " << std::endl;
+        std::cout << "Remove Index Number 4." << std::endl;
         obj.removePosition(4);
+        std::cout << "Size After Remove Index 4 = " << obj.getSize() << std::endl;
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
+        std::cout << "Add 0 At Begin." << std::endl;
         obj.addAtBegin(0);
-        std::cout << "Size: " << obj.getSize() << std::endl;
+        std::cout << "Size After Add 0 At Begin = " << obj.getSize() << std::endl;
+        std::cout << "Describe The Container Again: " << std::endl;
+        obj.showMyStirner();
+        std::cout << "Remove Elements From 0 To 3: " << std::endl;
+        obj.removeRange(0, 3);
+        std::cout << "Size After Delete The Range = " << obj.getSize() << std::endl;
+        std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
     }
     catch (const char *err)
