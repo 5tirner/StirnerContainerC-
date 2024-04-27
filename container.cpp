@@ -98,7 +98,15 @@ class stirner
             this->size = 0;
             this->linkedList= NULL;
         }
-        ~stirner(){}
+        ~stirner()
+        {
+            while (this->linkedList)
+            {
+                cntz *save = this->linkedList;
+                this->linkedList = this->linkedList->next;
+                delete(save);
+            }
+        }
         void    addAtEnd(_data val)
         {
             try
