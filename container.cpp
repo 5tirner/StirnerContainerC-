@@ -209,7 +209,7 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
         std::cout << "Remove Elements From 0 To 3: " << std::endl;
-        obj.removeRange(0, 3);
+        obj.removeRange(1, 9);
         std::cout << "Size After Delete The Range = " << obj.getSize() << std::endl;
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
