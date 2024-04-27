@@ -221,6 +221,9 @@ int main()
         std::cout << "Describe The Container Again: " << std::endl;
         obj.showMyStirner();
         std::cout << "Value Of Index 1 Is: " << obj[1] << std::endl;
+        obj[1] = 10;
+        std::cout << "Describe The Container Again: " << std::endl;
+        obj.showMyStirner();
     }
     catch (const char *err)
     {

@@ -13,4 +13,5 @@
 `removeRange(int From, int Until)`-> void, Throw Const Char* In Error Case (Until Excluded).
 ### Print All The Contenet Using The Member Function:
 `getContentOfPosiotion` -> Print Conetent.
-### You Can Access To An Element By Using `Operator[]` -> Throw Const Char * In Error Case.
+### You Can Access To An Element By Using `Operator[]` -> Throw Const Char * In Error Case:
+`Override The Value Of The Index Is Allowed`.
