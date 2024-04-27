@@ -104,9 +104,21 @@ class stirner
                 (*self) = (*self)->next;
                 delete save;
             }
-            *self = copy; 
+            *self = copy;
         }
 
+        int     findElement(cntz *self, _data val)
+        {
+            int i = 0;
+            while (self)
+            {
+                if (self->val == val)
+                    return (i);
+                i++;
+                self = self->next;
+            }
+            return (-1);
+        }
         cntz    *linkedList;
         int     size;
 
@@ -187,6 +199,16 @@ class stirner
             return (getData(this->linkedList, index));
         }
         int getSize() {return (this->size);}
+
+        int    search(_data needle)
+        {
+            if (!this->linkedList)
+                throw "Failed Search For Element.";
+            int save = this->findElement(this->linkedList, needle);
+            if (save == -1)
+                throw "Failed Search For Element.";
+            return (save);  
+        }
 };
 
 

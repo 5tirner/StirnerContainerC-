@@ -13,9 +13,12 @@
 `removeRange(int From, int Until)`-> void, Throw Const Char* In Error Case (Until Excluded).
 ### Print All The Contenet Using The Member Function:
 `getContentOfPosiotion` -> Print Conetent.
-### You Can Access To An Element By Using `Operator[]` -> Throw Const Char * In Error Case.
+### Access To An Element By Using `Operator[]` -> Throw Const Char * In Error Case.
 `Override The Value Of The Index Is Allowed`.
+### Search For Index Of An Element By Using The Member Function:
+`search(dataType val)` -> int, Return Position, Throw Const Char * In Error Case
 
+-------------------------------------------------------------------------------------------
 ### ==954804== Memcheck, a memory error detector:
 `==954804== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.`\
 `==954804== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info`\
